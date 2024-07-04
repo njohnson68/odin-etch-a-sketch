@@ -17,8 +17,13 @@ function createNewGrid(size) {
 
   newCells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
-      cell.setAttribute("style", "background-color: blue;");
+      cell.style.backgroundColor = "blue";
     });
+  });
+
+  //update flexBasis of cells based on inputted size
+  newCells.forEach((cell) => {
+    cell.style.flexBasis = 400 / size + "px";
   });
 }
 
@@ -51,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
-      cell.setAttribute("style", "background-color: blue;");
+      cell.style.backgroundColor = "blue";
     });
   });
 

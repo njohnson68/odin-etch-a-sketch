@@ -17,7 +17,7 @@ function createNewGrid(size) {
 
   newCells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
-      cell.style.backgroundColor = "blue";
+      cell.style.backgroundColor = generateRandomColor();
     });
   });
 
@@ -33,6 +33,15 @@ function removeGrid() {
   gridCells.forEach((cell) => {
     cell.parentNode.removeChild(cell);
   });
+}
+
+function generateRandomColor() {
+  let chars = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += chars[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -56,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
-      cell.style.backgroundColor = "blue";
+      cell.style.backgroundColor = generateRandomColor();
     });
   });
 
@@ -69,6 +78,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (gridSize >= 2 && gridSize <= 100) {
       removeGrid();
       createNewGrid(gridSize);
+    } else if (gridSize < 2) {
+      removeGrid();
+      createNewGrid(2);
+    } else if (gridSize > 100) {
+      removeGrid();
+      createNewGrid(100);
     }
   });
 });

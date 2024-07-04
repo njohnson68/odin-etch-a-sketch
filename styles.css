@@ -1,13 +1,18 @@
+body {
+  background-color: darkslategray;
+}
+
 .container {
   display: flex;
   flex-flow: row wrap;
   margin: auto;
   width: 400px;
   height: 400px;
+  background-color: white;
 }
 
 .btn {
-  margin: auto;
+  margin: 50px auto;
   display: flex;
 }
 
